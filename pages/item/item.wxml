@@ -1,0 +1,7 @@
+<!--logs.wxml-->
+<view class="container list">
+  <block wx:for="{{picList}}" style="padding:10rpx 5px">
+    <image src="{{item}}" mode="aspectFit"></image>
+  </block>
+  <text>pics</text>
+</view>
