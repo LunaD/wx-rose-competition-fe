@@ -15,9 +15,14 @@ Page({
       url: '../logs/logs'
     })
   },
-  goToListPage(e) {
+  goToListPage() {
     wx.navigateTo({
       url: '../list/list'
+    })
+  },
+  goToJoinPage() {
+    wx.navigateTo({
+      url: '../join/join'
     })
   },
   onLoad() {

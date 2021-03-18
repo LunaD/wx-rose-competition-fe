@@ -1,0 +1,36 @@
+<!--logs.wxml-->
+<view class="container join">
+  <text style="display:flex; width:100%; font-size: 50rpx;">地载</text>
+  <view style="background-color:#fff; display:flex; flex-direction:row; width:100%; padding: 25rpx 25rpx 10rpx 25rpx; border-radius: 8rpx; margin-bottom:100rpx;">
+    <block wx:for="{{uploadedPhotos}}}" wx:for-item="uploadedPhoto">
+      <image src="{{uploadedPhoto.url}}" mode="aspectFit" bind:tap="goToDetail"></image>
+    </block>
+    <view class="weui-uploader__input-box">
+      <view class="weui-uploader__input" style="opacity:1; background-color:rgb(255,255,255,0)" bindtap="chooseImage"></view>
+    </view>
+  </view>
+
+  <text style="display:flex; width:100%; font-size: 50rpx;">盆栽</text>
+  <view style="background-color:#fff; display:flex; flex-direction:row; width:100%; padding: 25rpx 25rpx 10rpx 25rpx; border-radius: 8rpx">
+    <block wx:for="{{uploadedPhotos}}}" wx:for-item="uploadedPhoto">
+      <image src="{{uploadedPhoto.url}}" mode="aspectFit" bind:tap="goToDetail"></image>
+    </block>
+    <view class="weui-uploader__input-box">
+      <view class="weui-uploader__input" style="opacity:1; background-color:rgb(255,255,255,0)" bindtap="chooseImage"></view>
+    </view>
+  </view>
+
+  <button style="margin-top:200rpx; padding: 30rpx 100rpx;">参选</button>
+
+    <!-- <view id="{{item.competitorId}}" style="margin:10rpx 5rpx;display:flex; flex-direction:column; align-items:center; justify-content:space-between;">
+      <text class="log-item" style="padding:5rpx">{{index + 1}}. {{item.competitor}}</text>
+      <view style="width:680rpx; padding:10rpx 10rpx; display:flex; flex-direction:row; align-items:center; justify-content:center;">
+        <view wx:for="{{item.roseEntries}}" wx:for-item="roseEntry" style="margin:10rpx; display:flex; flex-direction:column; align-items:center; justify-content:space-between;" id="{{roseEntry.name}}" bind:tap="goToDetail">
+          <image src="{{roseEntry.url}}" mode="aspectFit" class="tiny"></image>
+          <text style="display:flex">{{roseEntry.name}}</text>
+        </view>
+      </view>
+    </view>
+    <rich-text nodes="{{hrNode}}" style="width:100%"></rich-text> -->
+  
+</view>

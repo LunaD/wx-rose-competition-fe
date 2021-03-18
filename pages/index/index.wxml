@@ -9,6 +9,7 @@
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
+    <button bind:tap="goToJoinPage"> 我要参赛 </button>
     <button bind:tap="goToListPage"> 参赛作品 列表 </button>
   </view>
 </view>
