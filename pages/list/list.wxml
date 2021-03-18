@@ -1,10 +1,14 @@
 <!--logs.wxml-->
 <view class="container list">
-  <block wx:for="{{works}}" style="padding:10rpx 5px">
-    <view id="{{item.roseName}}" style="margin:30rpx 5rpx; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: space-between;" bind:tap="goToItem">
-      <text class="log-item">{{index + 1}}. {{item.roseName}}</text>
-      <image src="{{item.url}}" mode="aspectFit"></image>
-      <text>{{item.competitor}}</text>
+  <block wx:for="{{competitors}}" wx:for-item="item">
+    <view id="{{item.competitorId}}" style="margin:10rpx 5rpx;display:flex; flex-direction:column; align-items:center; justify-content:space-between;">
+      <text class="log-item" style="padding:5rpx">{{index + 1}}. {{item.competitor}}</text>
+      <view style="width:680rpx; padding:10rpx 10rpx; display:flex; flex-direction:row; align-items:center; justify-content:center;">
+        <view wx:for="{{item.roseEntries}}" wx:for-item="roseEntry" style="margin:10rpx; display:flex; flex-direction:column; align-items:center; justify-content:space-between;" id="{{roseEntry.name}}" bind:tap="goToDetail">
+          <image src="{{roseEntry.url}}" mode="aspectFit" class="tiny"></image>
+          <text style="display:flex">{{roseEntry.name}}</text>
+        </view>
+      </view>
     </view>
     <rich-text nodes="{{hrNode}}" style="width:100%"></rich-text>
   </block>
