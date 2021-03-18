@@ -6,6 +6,12 @@ Page({
   data: {
     works: []
   },
+  showImgDetail(e) {
+    wx.previewImage({
+      urls: ["http://tiebapic.baidu.com/forum/pic/item/409dea004a90f603d80e8e062e12b31bb151edd2.jpg"],
+      showmenu: true
+    })
+  },
   onLoad(q) {
     console.log(q)
     this.setData({

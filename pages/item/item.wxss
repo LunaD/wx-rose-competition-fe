@@ -1,3 +1,10 @@
 .list {
   padding: 50rpx 0;
-} 
+}
+
+.cover-view {
+  position: absolute;
+  top: calc(50% - 150rpx);
+  left: calc(50% - 300rpx);
+  /* opacity: .7; */
+}
