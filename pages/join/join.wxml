@@ -1,15 +1,40 @@
 <!--logs.wxml-->
 <view class="container join">
   <text style="display:flex; width:100%; font-size: 50rpx;">参选</text>
-  <view style="background-color:#fff; display:flex; flex-direction:row; flex-wrap:wrap; width:100%; padding: 25rpx 25rpx 10rpx 25rpx; border-radius: 8rpx; margin-bottom:100rpx;">
-    <block wx:for="{{uploadedPhotoPaths}}">
-      <image src="{{item}}" data-idx="{{index}}" mode="aspectFit" bind:tap="previewImg" style="width:30%"></image>
-    </block>
+
+  <!-- pot -->
+  <text style="display:flex; width:100%; font-size: 30rpx; margin-top:25rpx;">盆栽</text>
+  <view style="background-color:#fff; display:flex; flex-direction:row; flex-wrap:wrap; width:100%; padding: 25rpx 25rpx 10rpx 25rpx; border-radius: 8rpx; margin-bottom:25rpx;">
+      <block wx:for="{{potPhotoPaths}}">
+        <view class="view_img">
+          <image src="{{item}}" mode="aspectFit" bind:tap="previewPotImg" data-idx="{{index}}" data-id="{{potPhotoIds[index]}}" ></image>
+          <icon class="icon-small" type="cancel" size="20" bind:tap="delPotImg" data-idx="{{index}}" data-id="{{potPhotoIds[index]}}"></icon>
+        </view>
+      </block>
+
     <view class="weui-uploader__input-box">
-      <view class="weui-uploader__input" style="opacity:1; background-color:rgb(255,255,255,0)" bindtap="chooseImage"></view>
+      <view class="weui-uploader__input" style="opacity:1; background-color:rgb(255,255,255,0)" bind:tap="choosePotImg"></view>
     </view>
   </view>
 
-  <button style="margin-top:200rpx; padding: 30rpx 100rpx;">参选</button>
-  
+
+
+  <!-- earth -->
+  <text style="display:flex; width:100%; font-size: 30rpx;">地栽</text>
+  <view style="background-color:#fff; display:flex; flex-direction:row; flex-wrap:wrap; width:100%; padding: 25rpx 25rpx 10rpx 25rpx; border-radius: 8rpx;">
+    <block wx:for="{{earthPhotoPaths}}">
+      <view class="view_img">
+        <image src="{{item}}" mode="aspectFit" bind:tap="previewEarthImg" data-idx="{{index}}" data-id="{{earthPhotoIds[index]}}"></image>
+        <icon class="icon-small" type="cancel" size="20" bind:tap="delEarthImg" data-idx="{{index}}" data-id="{{earthPhotoIds[index]}}"></icon>
+      </view>
+    </block>
+
+    <view class="weui-uploader__input-box">
+      <view class="weui-uploader__input" style="opacity:1; background-color:rgb(255,255,255,0)" bind:tap="chooseEarthImg"></view>
+    </view>
+  </view>
+
+
+
+  <button style="margin-top:200rpx; padding: 30rpx 100rpx;" bind:tap="joinCompetition">参选</button>
 </view>
