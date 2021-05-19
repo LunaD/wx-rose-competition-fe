@@ -6,36 +6,8 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 登录
-    wx.login({
-      // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      success: res => {
-        if(res.code) {
-          this.globalData.userCode = res.code
-          wx.request({
-            url: 'http://192.168.1.7:8080/user',
-            method: 'POST',
-            header: {
-              'content-type': 'application/json'
-            },
-            data: {
-              'code': res.code
-            },
-            success: res => {
-              console.log("request success:" + JSON.stringify(res))
-              this.userInfo = res
-              // TODO: login成功跳转index页面
-            },
-            fail: res => {
-              console.log("request fail")
-            }
-          })
-        } else {
-          console.log("login fail")
-          // TODO: 获取不到openid的情况跳转错误页面
-        }
-      }
-    })
+    // 登录以前是在这里的，现在搬家去 index.js 了
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -58,17 +30,19 @@ App({
         // }
       }
     }),
-    // wx.getUserProfile({
-    //   lang: 'zh_CN',
-    //   desc: '登录信息使用',
-    //   success: res => {
-    //     con
-    //     console.log(res.userInfo)
-    //   },
-    //   fail: res => {
-    //     console.log(res)
-    //   }
-    // }),
+
+    /* wx.getUserProfile({
+      lang: 'zh_CN',
+      desc: '登录信息使用',
+      success: res => {
+        con
+        console.log(res.userInfo)
+      },
+      fail: res => {
+        console.log(res)
+      }
+    }), */
+
     wx.authorize({
       scope: 'scope.userInfo',
       success: res => {
@@ -80,8 +54,12 @@ App({
       }
     })
   },
+
+  
+
   globalData: {
-    userInfo: null,
-    userCode: null
+    userCode: null,
+    userOpenId: null,
+    userInfo: null
   }
 })

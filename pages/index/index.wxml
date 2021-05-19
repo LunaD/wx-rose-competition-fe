@@ -1,5 +1,8 @@
 <!--index.wxml-->
-<view class="container">
+<view class="view-cover" animation="{{animationData}}">
+  <image src="../list/img/EarthAngle/EarthAngle10.jpg" mode="aspectFit" wx:if="{{showMask}}" class="img-cover"></image>
+</view>
+<view class="container" wx:if="{{!showMask}}">
   <view class="userinfo">
     <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="myCallback"> 获取头像昵称 </button> -->
     <!-- <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image> -->
